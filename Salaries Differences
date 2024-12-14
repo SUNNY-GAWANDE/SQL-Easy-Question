@@ -1,0 +1,14 @@
+with cte as(
+select
+    max(case when department='marketing' then salary else null end) as marketing,
+    max(case when department='engineering' then salary else null end) as engineering
+from (
+select e.*, d.department
+from db_employee as e
+inner join 
+db_dept as d
+on e.department_id = d.id) as t1)
+
+select (marketing - engineering) as salary_diff
+from cte
+
