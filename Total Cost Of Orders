@@ -1,0 +1,7 @@
+select c.id,first_name,SUM(total_order_cost) 
+from customers c
+JOIN orders o ON c.id = o.cust_id 
+
+GROUP BY 1,2
+
+ORDER BY 2 asc
