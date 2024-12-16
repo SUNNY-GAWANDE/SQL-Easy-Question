@@ -1,0 +1,5 @@
+
+select distinct(noc), min(year) as first_time_year
+from olympics_athletes_events
+group by 1
+order by 2,1
