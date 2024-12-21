@@ -1,0 +1,6 @@
+SELECT sender_id, COUNT(*) as cnt
+FROM messages
+WHERE date_part('month',sent_date) = 8 AND date_part('year', sent_date) = 2022
+GROUP BY 1
+ORDER BY cnt DESC
+limit 2;
