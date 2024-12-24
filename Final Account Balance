@@ -6,3 +6,7 @@ sum(case when transaction_type = 'Withdrawal' then amount else 0 END)
 as with_amt
 from transactions
 group by 1)
+
+select account_id,
+(deposit_amt - with_amt) as final_amt
+from cte;
