@@ -1,0 +1,7 @@
+SELECT COUNT(*)
+FROM
+(
+SELECT company_id, title, COUNT(*) 
+FROM job_listings
+GROUP BY 1,2
+having COUNT(*) > 1 ) as tbl;
