@@ -1,0 +1,3 @@
+SELECT DISTINCT(candidate_id)
+FROM candidates
+where skill in ('Python', 'Tableau', 'PostgreSQL')
