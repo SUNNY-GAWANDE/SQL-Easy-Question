@@ -1,0 +1,7 @@
+SELECT 
+date_part('month', submit_date) as mnth,
+product_id as product,
+round(avg(stars),2)
+FROM reviews
+group by 1,2
+order by 1,2;
