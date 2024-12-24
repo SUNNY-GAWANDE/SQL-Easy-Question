@@ -1,0 +1,4 @@
+SELECT
+count(CASE WHEN product LIKE 'TurboTax%' THEN 1 ELSE NULL END) as turbotax_total,
+count(CASE WHEN product LIKE 'QuickBooks%' THEN 1 ELSE NULL END) as QuickBooks_total
+FROM filed_taxes
