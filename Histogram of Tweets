@@ -1,0 +1,9 @@
+with cte as(
+SELECT DISTINCT(user_id	), Count(*) as tweet_bucket
+FROM tweets
+WHERE DATE_PART('year', tweet_date) = '2022'
+GROUP by 1)
+
+select tweet_bucket as tweet_bucket, count(user_id) as users_num
+from cte 
+GROUP by 1;
