@@ -1,0 +1,10 @@
+SELECT u.city, count(*) as trade_orders
+FROM
+trades as t
+inner JOIN 
+users as u
+using(user_id)
+where status = 'Completed'
+GROUP by 1
+order by trade_orders DESC
+limit 3;
