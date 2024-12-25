@@ -1,0 +1,8 @@
+SELECT card_name, (max_amt - min_amt) as difference
+FROM
+(
+SELECT card_name, min(issued_amount) as min_amt, max(issued_amount) as max_amt
+FROM monthly_cards_issued
+GROUP by 1
+) as diff_table
+ORDER BY 2 DESC;
