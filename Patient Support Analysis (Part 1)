@@ -1,0 +1,8 @@
+with cte as (
+SELECT policy_holder_id, count(case_id)
+FROM callers
+GROUP by 1
+HAVING count(case_id) >=3 )
+
+SELECT count(policy_holder_id) as policy_holder_count
+from cte ;
