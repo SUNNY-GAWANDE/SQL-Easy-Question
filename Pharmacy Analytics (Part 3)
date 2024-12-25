@@ -1,0 +1,8 @@
+with cte as (
+SELECT manufacturer, round((sum(total_sales)/1000000),0) as total_sales
+FROM pharmacy_sales
+GROUP BY 1
+order by 2 DESC,1
+)
+SELECT manufacturer, '$' || total_sales || ' million' as sales_mil
+from cte
