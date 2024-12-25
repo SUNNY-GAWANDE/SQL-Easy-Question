@@ -1,0 +1,5 @@
+SELECT merchant_id,
+sum(CASE WHEN payment_method ILIKE 'Apple Pay' THEN transaction_amount ELSE 0 END) as total_transaction
+FROM transactions
+GROUP BY 1
+ORDER BY 2 DESC;
