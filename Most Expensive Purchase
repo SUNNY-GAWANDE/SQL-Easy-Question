@@ -1,0 +1,6 @@
+SELECT 
+  customer_id, 
+  MAX(purchase_amount) AS most_expensive_purchase
+FROM transactions
+GROUP BY customer_id
+ORDER BY most_expensive_purchase DESC;
