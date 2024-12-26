@@ -1,0 +1,11 @@
+with cte as(
+SELECT 
+count(CASE WHEN review_stars >=4 THEN 1 ELSE NULL END) AS business_count,
+count(CASE WHEN review_stars >=1 THEN 1 ELSE NULL END) AS ttl_business
+FROM
+reviews)
+select
+    business_count,
+    round(cast(business_count as decimal) / ttl_business * 100,0) as percentage -- Calculate proportion as percentage
+from
+    cte;
