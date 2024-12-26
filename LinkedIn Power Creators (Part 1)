@@ -1,0 +1,14 @@
+with cte as(
+SELECT p.profile_id,
+p.followers as personal_follower, c.name,
+c.followers as company_follower
+FROM 
+personal_profiles as p 
+INNER JOIN 
+company_pages as c 
+on p.employer_id = c.company_id)
+SELECT profile_id
+FROM
+cte 
+WHERE personal_follower > company_follower
+order BY profile_id;
