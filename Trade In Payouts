@@ -1,0 +1,6 @@
+SELECT t.store_id, sum(p.payout_amount) as payout_total
+FROM trade_in_transactions as t 
+INNER JOIN trade_in_payouts as p 
+USING(model_id)
+GROUP by 1 
+ORDER by 2 DESC;
