@@ -1,0 +1,5 @@
+select subdate(week, dayofweek(week) -1) as weeks,
+sum(quantity)
+from orders_analysis
+group by 1
+having month(weeks) < 4
