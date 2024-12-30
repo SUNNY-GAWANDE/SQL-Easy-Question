@@ -1,4 +1,4 @@
-SELECT user_id, count(*) as num_pro,sum(spend) as amt_spend
+SELECT user_id, count(*) as num_pro
 FROM
 user_transactions
 GROUP BY 1 
