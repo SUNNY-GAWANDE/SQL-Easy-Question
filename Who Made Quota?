@@ -1,0 +1,18 @@
+with cte1 as(
+SELECT employee_id, sum(deal_size) as size
+FROM
+deals
+GROUP by 1),
+cte2 as(
+SELECT * 
+FROM
+cte1 
+INNER JOIN
+sales_quotas
+USING(employee_id))
+SELECT employee_id,
+CASE WHEN size > quota THEN 'yes'
+ELSE 'no'
+END AS made_quota
+FROM cte2
+ORDER BY 1;
