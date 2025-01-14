@@ -1,0 +1,12 @@
+with cte as(
+select area_name, count(distinct(customer_id)) as ttl_cust,
+max(area_size) as size
+from transaction_records
+left join 
+stores
+using(store_id)
+group by 1)
+select area_name, cast(ttl_cust as decimal)/size as customer_density
+from cte
+order by 2 desc
+limit 4
