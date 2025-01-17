@@ -1,0 +1,5 @@
+select gender,count(*) as cnt
+from medical_appointments
+group by 1
+order by 1
+limit 1;
